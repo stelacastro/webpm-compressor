@@ -61,7 +61,6 @@ from telegram.ext import (
 # ---------------------------------------------------------------------------
 # Configurações gerais
 # ---------------------------------------------------------------------------
-
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     level=logging.INFO,
@@ -135,9 +134,9 @@ def _build_ffmpeg_command(
       -an                 (repetido acima) garante ausência de áudio.
     """
     scale_filter = (
-        f"scale='if(gt(iw,ih),{MAX_DIMENSION},-2)':"
-        f"'if(gt(iw,ih),-2,{MAX_DIMENSION})':force_original_aspect_ratio=decrease"
-    )
+    f"scale='if(gt(iw,ih),{MAX_DIMENSION},-2)':"
+    f"'if(gt(iw,ih),-2,{MAX_DIMENSION})'"
+)
     vf = f"fps={fps},{scale_filter}"
 
     return [
